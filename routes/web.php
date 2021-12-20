@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
-
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +19,5 @@ use Laravel\Jetstream\Rules\Role;
 Route::get('/',function(){
     return view('atlantis');
 });
-
+Route::resource('barang',BarangController::class);
+Route::resource('kategori',KategoriController::class);

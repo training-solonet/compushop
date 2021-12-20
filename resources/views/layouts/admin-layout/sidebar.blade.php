@@ -27,7 +27,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="barang">
+                    <a href="{{ route('barang.index') }}">
                         <i class="fas fa-table"></i>
                         <p>Table Barang</p>
                         <span class="caret"></span>
@@ -35,7 +35,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="barang">
+                    <a href="{{ route('kategori.index') }}">
                         <i class="fas fa-table"></i>
                         <p>Table Kategori</p>
                         <span class="caret"></span>
