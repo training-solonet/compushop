@@ -17,7 +17,7 @@ use App\Http\Controllers\KategoriController;
 
 
 Route::get('/',function(){
-    return view('atlantis');
+    return view('home');
 });
 Route::resource('barang',BarangController::class);
 Route::resource('kategori',KategoriController::class);

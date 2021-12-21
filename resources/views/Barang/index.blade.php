@@ -33,7 +33,9 @@
                                 <h2>Data Barang</h2>
                             </div>
                             <div class="float-right">
-                                <a class="btn btn-success" href="{{ route('barang.create') }}">Tambah Barang</a>
+                                <a class="btn btn-success" href="{{ route('barang.create') }}">
+                                    <i class="far fa-plus-square">  Tambah Barang </i></a>
+
                             </div>
                         </div>
                         <div class="card-body">
@@ -69,11 +71,14 @@
                                             <td class="text-center">
                                                 <form action="{{ route('barang.destroy', $a->id) }}" method="POST">
                                                     <a class="btn btn-primary btn-sm"
-                                                        href="{{ route('barang.edit', $a->id) }}">Edit</a>
+                                                        href="{{ route('barang.edit', $a->id) }}">
+                                                        <i class="far fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Apakah Anda Yakin Akan menghapus data ini ?')">Delete</button>
+                                                        onclick="return confirm('Apakah Anda Yakin Akan menghapus data ini ?')">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
