@@ -5,7 +5,7 @@
             <!-- ============================================================= LOGO ============================================================= -->
             <div class="logo">
                 <a href="index.html">
-                    <img alt="logo" src="{{ url('style/assets/images/logo2.PNG') }}" width="200" height="50" />
+                    <img alt="logo" src="{{ url('style/assets/images/logo5.PNG') }}" width="200" height="50" />
                 </a>
             </div><!-- /.logo -->
             <!-- ============================================================= LOGO : END ============================================================= -->
@@ -14,10 +14,10 @@
         <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder no-margin">
             <div class="contact-row">
                 <div class="phone inline">
-                    <i class="fa fa-phone"></i> (+800) 123 456 7890
+                    <i class="fa fa-phone"></i> +6281542017888
                 </div>
                 <div class="contact inline">
-                    <i class="fa fa-envelope"></i> contact@<span class="le-color">oursupport.com</span>
+                    <i class="fa fa-envelope"></i> contact@<span class="le-color">solonet@solonet.net.id</span>
                 </div>
             </div><!-- /.contact-row -->
             <!-- ============================================================= SEARCH AREA ============================================================= -->

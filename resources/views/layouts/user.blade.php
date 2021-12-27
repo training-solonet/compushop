@@ -20,7 +20,7 @@
 
         <!-- Customizable CSS -->
         <link rel="stylesheet" href="{{ url('style/assets/css/style.css') }}">
-        <link rel="stylesheet" href="{{ url('style/assets/css/colors/green.css') }}">
+        <link rel="stylesheet" href="{{ url('style/assets/css/colors/blue.css') }}">
         <link rel="stylesheet" href="{{ url('style/assets/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ url('style/assets/css/owl.transitions.css') }}">
         <link rel="stylesheet" href="{{ url('style/assets/css/animate.min.css') }}">
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="{{ url('style/assets/css/font-awesome.min.css') }}">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ url('style/assets/images/c.PNG ') }}">
+        <link rel="shortcut icon" href="{{ url('style/assets/images/icon.PNG ') }}">
 
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
@@ -56,8 +56,12 @@
                     </div><!-- /.col -->
                     <div class="col-xs-12 col-sm-6 no-margin">
                         <ul class="right">
-                            <li><a href="authentication.html">Register</a></li>
-                            <li><a href="authentication.html">Login</a></li>
+                            @if (Auth::user())
+                            <li><a href="/user/profile">{{ Auth::user()->username }}</a></li>
+
+                            @endif
+                            <li><a href="/regist ">Register</a></li>
+                            <li><a href="/login">Login</a></li>
                         </ul>
                     </div><!-- /.col -->
                 </div><!-- /.container -->

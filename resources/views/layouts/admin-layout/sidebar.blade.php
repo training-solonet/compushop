@@ -40,8 +40,21 @@
                         <p>Table Kategori</p>
                         <span class="caret"></span>
                     </a>
+                </li>
 
+                <li class="nav-item">
+                    <i class="fas fa-logout"></i>
+                    <p>Logout</p>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
 
+                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-jet-dropdown-link>
+                    <span class="caret"></span>
+                </form>
                 </li>
 
         </div>

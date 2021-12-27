@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
-
-use App\Http\Controllers\Controller;
-use App\Models\Barang;
-use App\Models\Kategori;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +14,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $role = Auth::user()->role;
 
-        $barang=Barang::all();
-
-        return view('home' , [
-            'barang'     => $barang,
-        ]);
+        if ($role === 'admin') {
+            return redirect()->route('barang.index');
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
@@ -32,7 +30,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -54,18 +52,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        $barang=Barang::where('nama_barang', $id)->first();
-
-        if($barang){
-
-            return view('single-product' , [
-                'barang'     => $barang,
-            ]);
-
-        }else{
-             abort(404);
-        }
-
+        //
     }
 
     /**

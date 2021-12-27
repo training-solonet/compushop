@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User\DashboardController;
 use App\Models\User;
 
@@ -18,13 +19,11 @@ use App\Models\User;
 |
 */
 
+Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/',function(){
-    return view('home');
+Route::get('/single', function () {
+    return view('single-product');
 });
-Route::resource('barang',BarangController::class);
-Route::resource('kategori',KategoriController::class);
-
 
 Route::get('/regist', function () {
     return view('register');
@@ -35,19 +34,22 @@ Route::get('/home', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-
-   if(User::user()->role == 'admin'){
-       return redirect()->route('barang.index');
-   }else{
-       return view('home');
-   }
-
+    return redirect('user');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
-    return view('index');
-})->name('index');
+    Route::get('redirects', [LoginController::class, 'index']);
 
+    Route::middleware(['onlyAdmin'])->group(function () {
+        Route::get('admin', function () {
+            return view('barang.index');
+        });
 
-Route::resource('user',DashboardController::class);
+        Route::resource('barang',BarangController::class);
+        Route::resource('kategori',KategoriController::class);
+
+    });
+});
+
+Route::resource('user', DashboardController::class);
