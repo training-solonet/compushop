@@ -53,3 +53,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::resource('user', DashboardController::class);
+

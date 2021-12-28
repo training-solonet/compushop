@@ -16,7 +16,8 @@ class Barang extends Model
         'harga_barang',
         'stok_barang',
         'foto_barang',
-        'deskripsi'
+        'deskripsi',
+        'slug'
     ];
 
     function kategori(){

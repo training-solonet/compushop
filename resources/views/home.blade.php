@@ -120,7 +120,7 @@
 
                                         <div class="hover-area">
                                             <div class="add-cart-button">
-                                                <a href="{{ route('user.show',$data->nama_barang) }}" class="le-button">add to cart</a>
+                                                <a href="{{ route('user.show',$data->slug) }}" class="le-button">add to cart</a>
                                             </div>
                                             <div class="wish-compare">
                                                 <a class="btn-add-to-wishlist" href="#">add to wishlist</a>

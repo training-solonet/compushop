@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BarangController extends Controller
 {
@@ -57,13 +58,14 @@ class BarangController extends Controller
 
 		$file->move($tujuan_upload,$nama_file);
 
-       $barang = barang::create([
+        $barang = barang::create([
         'nama_barang'=> $request->nama_barang,
         'id_kategori'=> $request->id_kategori,
         'harga_barang'=> $request->harga_barang,
         'stok_barang'=> $request->stok_barang,
         'deskripsi'=> $request->deskripsi,
         'foto_barang'=> $nama_file,
+        'slug'=>Str::slug($request->nama_barang, '-')
        ]);
 
         return redirect()->route('barang.index')->with('success','Berhasil Simpan');
@@ -75,9 +77,10 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $barang =Barang::where('nama_barang', $slug)->first();
+        return redirect()->route('barang.index')->with('barang',$barang);
     }
 
     /**

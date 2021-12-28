@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\User;
-
-use App\Http\Controllers\Controller;
-use App\Models\Barang;
-use App\Models\Kategori;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class DashboardController extends Controller
+use App\Models\Keranjang;
+class KeranjangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +14,6 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $barang=Barang::all();
-
-        return view('home' , [
-            'barang'     => $barang,
-        ]);
     }
 
     /**
@@ -32,7 +23,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -52,20 +43,9 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $barang=Barang::where('slug', $slug)->first();
-
-        if($barang){
-
-            return view('single-product' , [
-                'barang'     => $barang,
-            ]);
-
-        }else{
-             abort(404);
-        }
-
+        //
     }
 
     /**

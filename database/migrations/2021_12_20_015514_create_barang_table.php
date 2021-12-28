@@ -21,6 +21,7 @@ class CreateBarangTable extends Migration
             $table->integer('stok_barang');
             $table->string('foto_barang', 2048)->nullable();
             $table->string('deskripsi');
+            $table->string('slug');
             $table->timestamps();
         });
     }
