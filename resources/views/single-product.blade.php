@@ -8,7 +8,7 @@
 
                     <div id="owl-single-product" class="owl-carousel">
                         <div class="single-product-gallery-item" id="slide1">
-                            <a data-rel="prettyphoto" href="{{ url ('style/assets/images/products/product-gallery-01.jpg') }}">
+                            <a data-rel="prettyphoto" href="{{ url('img/' . $barang->foto_barang) }}">
                                 <img style="width: 300px" src="{{ url('img/' . $barang->foto_barang) }}"
                                 class="img-fluid mt-3 mb-3">
                             </a>
@@ -45,18 +45,21 @@
 
                     </div>
 
-                    <div class="qnt-holder">
-                        <div class="le-quantity">
-                            <form>
-                                <a class="minus" href="#reduce"></a>
-                                <input name="quantity" readonly="readonly" type="text" value="1" />
-                                <a class="plus" href="#add"></a>
-                            </form>
-                        </div>
-                        <a id="addto-cart" href="cart.html" class="le-button huge">add to cart</a>
-                    </div><!-- /.qnt-holder -->
+                    <div class="detail-contant">
+                        <p>{{ $barang->deskripsi }}
+                            <br><span class="stock">{{ $barang->stok_barang }} in stock</span>
+                        </p>
+                        <form method="POST" action="{{ route('keranjang.store') }}" >
+                            @csrf
+                            <div class="quantity">
+                                <input type="hidden" value="{{ $barang->id }}" name="id_barang">
+                                <input step="1" name="jumlah_barang" value="1" title="Qty"
+                                    class="input-text qty text" size="4" type="number">
+                            </div>
+                            <button type="submit" class="bt_main">Add to cart</button>
+                        </form>
+                    </div>
                 </div><!-- /.body -->
-
             </div><!-- /.body-holder -->
         </div><!-- /.container -->
     </div><!-- /.single-product -->

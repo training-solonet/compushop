@@ -170,7 +170,7 @@
             <div id="hero">
                 <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-                    <div class="item" style="background-image: url(assets/images/sliders/slider01.jpg);">
+                    <div class="item" style="background-image: url(style/assets/images/sliders/slider01.jpg);">
                         <div class="container-fluid">
                             <div class="caption vertical-center text-left">
                                 <div class="big-text fadeInDown-1">
@@ -192,7 +192,7 @@
                         </div><!-- /.container-fluid -->
                     </div><!-- /.item -->
 
-                    <div class="item" style="background-image: url(assets/images/sliders/slider03.jpg);">
+                    <div class="item" style="background-image: url(style/assets/images/sliders/slider03.jpg);">
                         <div class="container-fluid">
                             <div class="caption vertical-center text-left">
                                 <div class="big-text fadeInDown-1">

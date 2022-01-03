@@ -17,7 +17,7 @@ class BarangController extends Controller
     {
 
         $barang= Barang::with('kategori')->get();
-        return view('barang.index',compact('barang'));
+        return view('barang.index-',compact('barang'));
 
     }
 

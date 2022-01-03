@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User\DashboardController;
 use App\Models\User;
@@ -21,9 +22,9 @@ use App\Models\User;
 
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/single', function () {
-    return view('single-product');
-});
+// Route::get('/single', function () {
+//     return view('single-product');
+// });
 
 Route::get('/regist', function () {
     return view('register');
@@ -53,4 +54,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::resource('user', DashboardController::class);
+Route::resource('keranjang', KeranjangController::class)->middleware('auth');
 

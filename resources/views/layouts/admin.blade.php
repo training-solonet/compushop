@@ -9,6 +9,8 @@
 
     <!-- Fonts and icons -->
     <script src="{{ url('assets/assets/js/plugin/webfont/webfont.min.js') }}"></script>
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script>
         WebFont.load({
@@ -35,26 +37,26 @@
 <body>
     <div class="wrapper">
         <div class="main-header">
-            <!-- Logo Header -->
-            <div class="logo-header" data-background-color="blue">
 
-                <a href="index.html" class="logo">
-                    <img src="{{ url('assets/assets/img/logo11.PNG') }}" height="45" width="110" alt="navbar brand" class="navbar-brand">
-                </a>
-                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">
-                        <i class="icon-menu"></i>
-                    </span>
-                </button>
-                <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
-                <div class="nav-toggle">
-                    <button class="btn btn-toggle toggle-sidebar">
-                        <i class="icon-menu"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- End Logo Header -->
+            <!-- Logo Header -->
+			<div class="logo-header" data-background-color="blue">
+
+				<a href={{route('barang.index') }} class="logo">
+					<img src="{{ url('assets/assets/img/logo11.PNG') }}" width="110"  alt="navbar brand" class="navbar-brand">
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="icon-menu"></i>
+					</span>
+				</button>
+				<button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+				<div class="nav-toggle">
+					<button class="btn btn-toggle toggle-sidebar">
+						<i class="icon-menu"></i>
+					</button>
+				</div>
+			</div>
+			<!-- End Logo Header -->
 
             <!-- Navbar Header -->
             @include('layouts.admin-layout.header')
@@ -79,6 +81,8 @@
     <script src="{{ url('assets/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ url('assets/assets/js/core/bootstrap.min.js') }}"></script>
 
+    <!-- jQuery Scrollbar -->
+	<script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
     <!-- Datatables -->
     <script src="{{ url('assets/assets/js/plugin/datatables/datatables.min.js') }}"></script>
 
@@ -87,6 +91,14 @@
 
     <!-- Sweet Alert -->
     <script src="{{ url('assets/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+
+
+    <script >
+		$(document).ready(function() {
+			$('#basic-datatables').DataTable({
+			});
+        });
+	</script>
 
 </body>
 

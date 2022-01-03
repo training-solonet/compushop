@@ -1,5 +1,7 @@
 <!-- Sidebar -->
+
 <div class="sidebar sidebar-style-2">
+
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <div class="user">
@@ -11,52 +13,51 @@
                         <span>
                             Hizrian
                             <span class="user-level">Administrator</span>
+                            <span class="caret"></span>
+                        </span>
                     </a>
                     <div class="clearfix"></div>
-
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item active">
-                    <a data-toggle="collapse" href="</demo1/index.html>" class="collapsed" aria-expanded="false">
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
-                        <span class="caret"></span>
                     </a>
-
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('barang.index') }}">
+                    <a data-toggle="collapse" href="{{ route('barang.index') }}" class="collapsed"
+                        aria-expanded="false">
                         <i class="fas fa-table"></i>
-                        <p>Table Barang</p>
-                        <span class="caret"></span>
+                        <p>Tabel Barang</p>
                     </a>
-
                 </li>
+
                 <li class="nav-item">
-                    <a href="{{ route('kategori.index') }}">
+                    <a data-toggle="collapse" href="{{ route('kategori.index') }}" class="collapsed"
+                        aria-expanded="false">
                         <i class="fas fa-table"></i>
-                        <p>Table Kategori</p>
-                        <span class="caret"></span>
+                        <p>Tabel Kategori</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <i class="fas fa-logout"></i>
-                    <p>Logout</p>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
+                        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-jet-dropdown-link>
-                    <span class="caret"></span>
-                </form>
+                            {{ __('Log Out') }}
+                        </x-jet-dropdown-link>
+                    </form>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Logout</p>
                 </li>
 
+
+            </ul>
         </div>
     </div>
 </div>
