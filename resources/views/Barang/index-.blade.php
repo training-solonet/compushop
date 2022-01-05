@@ -31,6 +31,11 @@
                         <div class="card-header">
                             <h4 class="card-title">Data Barang</h4>
                         </div>
+                        <div class="float-right">
+                            <a class="btn btn-success" href="{{ route('barang.create') }}">
+                                <i class="far fa-plus-square">  Tambah Barang </i></a>
+
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="basic-datatables" class="display table table-striped table-hover">

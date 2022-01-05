@@ -64,6 +64,11 @@ class KeranjangController extends Controller
                         ->where('id_user', $user)
                         ->update([
                                 'jumlah_barang'     => $cek->jumlah_barang + $request->jumlah_barang
+                                // if($request->jumlah_barang<0){
+                                //     $cek->jumlah_barang - $request->jumlah_barang
+                                // } else{
+                                //     $cek->jumlah_barang + $request->jumlah_barang
+                                // }
                             ]);
 
         }else{
@@ -121,6 +126,7 @@ class KeranjangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Keranjang::find($id)->delete();
+        return redirect()->route('keranjang.index')->with('success', "has been Deleted");
     }
 }

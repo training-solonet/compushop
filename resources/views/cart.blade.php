@@ -55,7 +55,11 @@
                             <div class="price">
                                 @currency($data->jumlah_barang*$data->barang->harga_barang)
                             </div>
-                            <a class="close-btn" href="#"></a>
+                            <form action="{{ route('keranjang.destroy', $data->id) }}" method="post" class="d-inline">
+                                @csrf
+                                @method('delete')
+                            <button class="close-btn" onclick="return confirm('yakin ingin hapus?')"><span data-feather="x-circle"></span></button>
+                            </form>
                         </div>
                     </div><!-- /.cart-item -->
                 @endforeach
@@ -72,7 +76,7 @@
                         <ul class="tabled-data no-border inverse-bold">
                             <li>
                                 <label>cart subtotal</label>
-                                <div class="value pull-right">$8434.00</div>
+                                <div class="value pull-right">@currency($data->jumlah_barang*$data->barang->harga_barang)</div>
                             </li>
                             <li>
                                 <label>shipping</label>
@@ -82,7 +86,7 @@
                         <ul id="total-price" class="tabled-data inverse-bold no-border">
                             <li>
                                 <label>order total</label>
-                                <div class="value pull-right">$8434.00</div>
+                                <div class="value pull-right">@currency($data->jumlah_barang*$data->barang->harga_barang)</div>
                             </li>
                         </ul>
                         <div class="buttons-holder">
@@ -92,17 +96,7 @@
                     </div>
                 </div><!-- /.widget -->
 
-                <div id="cupon-widget" class="widget">
-                    <h1 class="border">use coupon</h1>
-                    <div class="body">
-                        <form>
-                            <div class="inline-input">
-                                <input data-placeholder="enter coupon code" type="text" />
-                                <button class="le-button" type="submit">Apply</button>
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- /.widget -->
+
             </div><!-- /.sidebar -->
 
             <!-- ========================================= SIDEBAR : END ========================================= -->

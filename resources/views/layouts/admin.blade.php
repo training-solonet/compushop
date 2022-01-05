@@ -40,8 +40,7 @@
 
             <!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
-
-				<a href={{route('barang.index') }} class="logo">
+				<a href={{route('user.index')}} class="logo">
 					<img src="{{ url('assets/assets/img/logo11.PNG') }}" width="110"  alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
