@@ -19,13 +19,13 @@ class Keranjang extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'id', 'id_user');
+        return $this->belongsTo(User::class,'id_user');
     }
 
 
     public function barang()
     {
-        return $this->HasOne(Barang::class, 'id','id_barang');
+        return $this->belongsTo(Barang::class, 'id_barang');
     }
 
 

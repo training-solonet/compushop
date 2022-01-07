@@ -16,12 +16,14 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        $keranjang= Keranjang::with('barang')->get();
-        $kategori=Kategori::all();
-        return view('cart',[
-            'keranjang'=>$keranjang,
-            'kategori'=>$kategori,
-        ]);
+        $keranjang= Keranjang::with('barang')->where('id_user', Auth::id())->get();
+        // return $keranjang;
+        if(!count($keranjang)>0){
+            return view('keranjangKosong');
+        }
+
+        return view('cart',compact('keranjang'));
+
 
         // $barang=Barang::all();
         // $keranjang = Keranjang::with('barang')->get();
@@ -44,7 +46,6 @@ class KeranjangController extends Controller
     public function create()
     {
         $barang=Barang::select('id','nama_barang')->get();
-
         return view('single-product',compact('barang'));
     }
 
@@ -56,37 +57,59 @@ class KeranjangController extends Controller
      */
     public function store(Request $request)
     {
-        $user= Auth::user()->id;
+        $cekBarang = Barang::with('kategori')->get();
 
-        $cek = Keranjang::where('id_barang', $request->id_barang)
-                        ->where('id_user', $user)
-                        ->first();
+        if(Auth::check()){
+            $cekBarang = Barang::where('id', $request->id_barang)->first();
+            $keranjang = Keranjang::where('id', $request->id_barang)->first();
 
-        if($cek){
+            if($cekBarang){
+                if(Keranjang::where('id_barang', $request->id_barang)->where('id_user', Auth::id())->exists()){
+                    $keranjang->update(['jumlah_barang' => $keranjang->jumlah_barang + $request->jumlah_barang]);
+                    return redirect()->route('keranjang.index')->with('success', 'Product is inc to Cart Succesfully');
 
-            //fungsi update
-            Keranjang::where('id_barang', $request->id_barang)
-                        ->where('id_user', $user)
-                        ->update([
-                                'jumlah_barang'     => $cek->jumlah_barang + $request->jumlah_barang
-                                // if($request->jumlah_barang<0){
-                                //     $cek->jumlah_barang - $request->jumlah_barang
-                                // } else{
-                                //     $cek->jumlah_barang + $request->jumlah_barang
-                                // }
-                            ]);
+                } else{
+                    $barangKeranjang = new Keranjang();
+                    $barangKeranjang->id_barang = $request->id_barang;
+                    $barangKeranjang->id_user = Auth::id();
+                    $barangKeranjang->jumlah_barang = $request->jumlah_barang;
+                    $barangKeranjang->save();
+            return redirect()->route('keranjang.index')->with('success', 'Product is add to Cart Succesfully');
+                }
 
-        }else{
-
-            Keranjang::create([
-                'jumlah_barang'     => $request->jumlah_barang,
-                'id_user'           => $user,
-                'id_barang'         => $request->id_barang
-            ]);
+            }
         }
+        // $user= Auth::user()->id;
+
+        // $cek = Keranjang::where('id_barang', $request->id_barang)
+        //                 ->where('id_user', $user)
+        //                 ->first();
+
+        // if($cek){
+
+        //     //fungsi update
+        //     Keranjang::where('id_barang', $request->id_barang)
+        //                 ->where('id_user', $user)
+        //                 ->update([
+        //                         'jumlah_barang'     => $cek->jumlah_barang + $request->jumlah_barang
+        //                         // if($request->jumlah_barang<0){
+        //                         //     $cek->jumlah_barang - $request->jumlah_barang
+        //                         // } else{
+        //                         //     $cek->jumlah_barang + $request->jumlah_barang
+        //                         // }
+        //                     ]);
+
+        // }else{
+
+        //     Keranjang::create([
+        //         'jumlah_barang'     => $request->jumlah_barang,
+        //         'id_user'           => $user,
+        //         'id_barang'         => $request->id_barang
+        //     ]);
+        // }
 
 
-        return redirect()->route('keranjang.index')->with('success', 'Product is add to Cart Succesfully');
+        // return redirect()->route('keranjang.index')->with('success', 'Product is add to Cart Succesfully');
     }
 
     /**
