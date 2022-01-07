@@ -24,7 +24,7 @@
                     <div class="mb-3">
                         <label for="nama_barang" class="form-label">Nama Barang</label>
                         <input type="text" class="form-control" value="{{ old('nama_barang') }}" name="nama_barang"
-                            id="exampleFormControlInput1" placeholder="nama_barang">
+                            id="exampleFormControlInput1" placeholder="Nama Barang">
                     </div>
 
                     <div class="mb-3">
@@ -39,13 +39,13 @@
                     <div class="mb-3">
                         <label for="harga_barang" class="form-label">Harga Barang</label>
                         <input type="text" class="form-control" value="{{ old('harga_barang') }}" name="harga_barang"
-                            id="exampleFormControlInput1" placeholder="harga_barang">
+                            id="exampleFormControlInput1" placeholder="Harga Barang">
                     </div>
 
                     <div class="mb-3">
                         <label for="stok_barang" class="form-label">Stok Barang</label>
                         <input type="text" class="form-control" value="{{ old('stok_barang') }}" name="stok_barang"
-                            id="exampleFormControlInput1" placeholder="stok_barang">
+                            id="exampleFormControlInput1" placeholder="Stok Barang">
                     </div>
 
                     <div class="mb-3">
@@ -57,7 +57,7 @@
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <input type="text" class="form-control" value="{{ old('deskripsi') }}" name="deskripsi"
-                            id="exampleFormControlInput1" placeholder="deskripsi">
+                            id="exampleFormControlInput1" placeholder="Deskripsi">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

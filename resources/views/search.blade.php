@@ -64,79 +64,47 @@
             <div class="col-xs-12 col-sm-9 no-margin wide sidebar">
                 <section id="gaming">
                     <div class="grid-list-products">
-                        <h2 class="section-title"> Gaming </h2>
-
-                        <div class="control-bar">
-                            <div id="popularity-sort" class="le-select">
-                                <select data-placeholder="sort by popularity">
-                                    <option value="1">1-100 players</option>
-                                    <option value="2">101-200 players</option>
-                                    <option value="3">200+ players</option>
-                                </select>
-                            </div>
-
-                            <div id="item-count" class="le-select">
-                                <select>
-                                    <option value="1">24 per page</option>
-                                    <option value="2">48 per page</option>
-                                    <option value="3">32 per page</option>
-                                </select>
-                            </div>
-
-                            <div class="grid-list-buttons">
-                                <ul>
-                                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i
-                                                class="fa fa-th-large"></i> Grid</a></li>
-                                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i
-                                                class="fa fa-th-list"></i> List</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- /.control-bar -->
+                        <h2 class="section-title">  </h2>
 
                         <div class="tab-content">
                             <div id="grid-view" class="products-grid fade tab-pane in active">
-
                                 <div class="product-grid-holder">
                                     @foreach ($barangs as $data)
-                                        <div class="row no-margin">
 
-                                            <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
-                                                <div class="product-item">
-                                                    <div class="ribbon red"><span>sale</span></div>
-                                                    <div class="image">
-                                                        <img style="width: 100px"
-                                                            src="{{ url('img/' . $data->foto_barang) }}"
-                                                            class="img-fluid mt-3 mb-3">
-                                                    </div>
-                                                    <div class="body">
-                                                        <div class="label-discount green">-50% sale</div>
-                                                        <div class="title">
-                                                            <a href="single-product.html">{{ $data->nama_barang }}</a>
-                                                            {{-- {{ $a->nama_barang }} --}}
-                                                        </div>
-                                                        <div class="brand">{{ $data->kategori->nama_kategori }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="prices">
-                                                        {{-- <div class="price-prev"></div> --}}
-                                                        {{-- {{ $a->harga_barang }} --}}
-                                                        <div class="price-current pull-right">@currency($data->harga_barang)
-                                                        </div>
-                                                    </div>
-                                                    <div class="hover-area">
-                                                        <div class="add-cart-button">
-                                                            <a href="{{ route('user.show', $data->slug) }}"
-                                                                class="le-button">add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div><!-- /.product-item -->
-                                            </div><!-- /.product-item-holder -->
+                                        <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+                                            <div class="product-item">
 
+                                                <div class="image">
+                                                    <img style="width: 100px" src="{{ url('img/' . $data->foto_barang) }}"
+                                                        class="img-fluid mt-3 mb-3">
+                                                </div>
+                                                <div class="body">
 
-                                        </div><!-- /.row -->
-                                        @endforeach
-                                </div><!-- /.product-grid-holder -->
+                                                    <div class="title">
+                                                        <a href="single-product.html">{{ $data->nama_barang }}</a>
+                                                        {{-- {{ $a->nama_barang }} --}}
+                                                    </div>
+                                                    <div class="brand">{{ $data->kategori->nama_kategori }}</div>
+                                                </div>
+                                                <div class="prices">
+                                                    {{-- <div class="price-prev"></div> --}}
+                                                    {{-- {{ $a->harga_barang }} --}}
+                                                    <div class="price-current pull-right">@currency($data->harga_barang)</div>
+                                                </div>
 
+                                                <div class="hover-area">
+                                                    <div class="add-cart-button">
+                                                        <a href="{{ route('user.show',$data->slug) }}" class="le-button">add to cart</a>
+                                                    </div>
+                                                    <div class="wish-compare">
+                                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+                                                        <a class="btn-add-to-compare" href="#">compare</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                                 <div class="pagination-holder">
                                     <div class="row">
 

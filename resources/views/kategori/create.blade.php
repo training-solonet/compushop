@@ -24,7 +24,7 @@
                     <div class="mb-3">
                         <label for="nama_kategori" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" value="{{ old('nama_kategori') }}" name="nama_kategori"
-                            id="exampleFormControlInput1" placeholder="nama_kategori">
+                            id="exampleFormControlInput1" placeholder="Nama Kategori">
                     </div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
