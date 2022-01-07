@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Keranjang;
@@ -16,7 +17,11 @@ class KeranjangController extends Controller
     public function index()
     {
         $keranjang= Keranjang::with('barang')->get();
-        return view('cart',compact('keranjang'));
+        $kategori=Kategori::all();
+        return view('cart',[
+            'keranjang'=>$keranjang,
+            'kategori'=>$kategori,
+        ]);
 
         // $barang=Barang::all();
         // $keranjang = Keranjang::with('barang')->get();

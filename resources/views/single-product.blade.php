@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.keranjang')
 @section('content')
     <div id="single-product">
         <div class="container">

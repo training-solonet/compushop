@@ -6,7 +6,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Models\User;
 
 /*
@@ -34,6 +34,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/cari', function () {
+    return view('search');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('user');
 })->name('dashboard');
@@ -55,4 +59,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 Route::resource('user', DashboardController::class);
 Route::resource('keranjang', KeranjangController::class)->middleware('auth');
-
+Route::get('/search', [DashboardController::class, 'search'])->name('search');

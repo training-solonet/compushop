@@ -1,7 +1,5 @@
 <!-- Sidebar -->
-
 <div class="sidebar sidebar-style-2">
-
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <div class="user">
@@ -20,29 +18,25 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="{{ route('barang.index') }}" class="collapsed"
-                        aria-expanded="false">
+                    <a href="{{ route('barang.index') }}">
                         <i class="fas fa-table"></i>
                         <p>Tabel Barang</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="{{ route('kategori.index') }}" class="collapsed"
-                        aria-expanded="false">
+                    <a href="{{ route('kategori.index') }}">
                         <i class="fas fa-table"></i>
                         <p>Tabel Kategori</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -55,8 +49,6 @@
                     <i class="fas fa-sign-out-alt"></i>
                     <p>Logout</p>
                 </li>
-
-
             </ul>
         </div>
     </div>

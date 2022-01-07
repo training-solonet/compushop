@@ -1,23 +1,13 @@
-@extends('layouts.user')
+@extends('layouts.keranjang')
 
 @section('content')
     <div class="animate-dropdown">
         <!-- ========================================= BREADCRUMB ========================================= -->
-        <div id="top-mega-nav">
-            <div class="container">
-                <nav>
-                    <ul class="inline">
-                        <li class="breadcrumb-nav-holder">
-                            <ul>
-                                <li class="breadcrumb-item current gray">
-                                    <a href="#">shopping cart</a>
-                                </li>
-                            </ul>
-                        </li><!-- /.breadcrumb-nav-holder -->
-                    </ul>
-                </nav>
-            </div><!-- /.container -->
-        </div><!-- /#top-mega-nav -->
+        <div class="inner-xs">
+            <div class="page-header">
+                <h2 class="page-title">My Cart</h2>
+            </div>
+        </div><!-- /.section-page-title -->
         <!-- ========================================= BREADCRUMB : END ========================================= -->
     </div>
     <section id="cart-page">

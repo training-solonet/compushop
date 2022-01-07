@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
@@ -18,10 +18,12 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $barang=Barang::all();
+        $barang     = Barang::all();
+        $kategori   = Kategori::all();
 
         return view('home' , [
             'barang'     => $barang,
+            'kategori'   => $kategori
         ]);
     }
 
@@ -30,9 +32,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-
+        $barang =Barang::where('nama_barang', $id)->first();
+        return redirect()->route('user.index')->with('barang',$barang);
     }
 
     /**
@@ -56,10 +59,13 @@ class DashboardController extends Controller
     {
         $barang=Barang::where('slug', $slug)->first();
 
+        $kategori   = Kategori::all();
+
         if($barang){
 
             return view('single-product' , [
                 'barang'     => $barang,
+                'kategori'     => $kategori,
             ]);
 
         }else{
@@ -101,4 +107,22 @@ class DashboardController extends Controller
     {
         //
     }
+
+        public function search(Request $request)
+    {
+        $keyword = $request->search;
+
+        if($request->kategori){
+
+            $kategori = Kategori::where('nama_kategori', $request->kategori)->first();
+
+            $barangs = Barang::where('id_kategori', $kategori->id)->paginate(5);
+
+        }else{
+            $barangs = Barang::where('nama_barang', 'like', "%" . $keyword . "%")->paginate(5);
+        }
+
+        return view('search', compact('barangs'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
 }

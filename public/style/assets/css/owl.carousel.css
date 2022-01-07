@@ -30,7 +30,14 @@
     -webkit-transform: translate3d(0px, 0px, 0px); }
   .owl-carousel .owl-item {
     position: relative;
-    min-height: 1px;
+    /* min-height: 1px; */
+    height: 325px;
+    box-sizing: border-box;
+    /* background: rgba(0,0,0,.5); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* object-fit: cover; */
+    /* background-image: url('../images/sliders/slider02.jp'); */
     float: left;
     -webkit-backface-visibility: hidden;
     -webkit-tap-highlight-color: transparent;
@@ -38,6 +45,8 @@
   .owl-carousel .owl-item img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     -webkit-transform-style: preserve-3d; }
   .owl-carousel .owl-nav.disabled,
   .owl-carousel .owl-dots.disabled {
