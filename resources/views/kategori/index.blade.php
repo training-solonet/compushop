@@ -34,7 +34,7 @@
                             </div>
                             <div class="float-right">
                                 <a class="btn btn-success" href="{{ route('kategori.create') }}">
-                                    <i class="far fa-plus-square">  Tambah Kategori </i></a>
+                                    <i class="far fa-plus-square"> Tambah Kategori </i></a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -46,31 +46,39 @@
 
                                 @endif
 
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Nama Kategori</th>
-                                        <th width="280px" class="text-center">Aksi</th>
-                                    </tr>
-                                    @foreach ($kategori as $a)
+                                <table id="basic-datatables" class="display table table-striped table-hover">
+                                    <thead>
                                         <tr>
-
-                                            <td>{{ $a->nama_kategori }}</td>
-                                            <td class="text-center">
-                                                <form action="{{ route('kategori.destroy', $a->id) }}" method="POST">
-                                                    <a class="btn btn-primary btn-sm"
-                                                        href="{{ route('kategori.edit', $a->id) }}">
-                                                        <i class="far fa-edit"></i></a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Apakah Anda Yakin Akan menghapus data ini ?')">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </button>
+                                            <th>No</th>
+                                            <th>Nama Kategori</th>
+                                            <th width="280px" class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($kategori as $a)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $a->nama_kategori }}</td>
+                                                <td class="text-center">
+                                                    <form action="{{ route('kategori.destroy', $a->id) }}" method="POST">
+                                                        <a class="btn btn-primary btn-sm"
+                                                            href="{{ route('kategori.edit', $a->id) }}">
+                                                            <i class="far fa-edit"></i></a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Apakah Anda Yakin Akan menghapus data ini ?')">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </button>
 
                                                     </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

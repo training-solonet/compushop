@@ -29,18 +29,20 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Data Barang</h4>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-success" href="{{ route('barang.create') }}">
-                                <i class="far fa-plus-square">  Tambah Barang </i></a>
-
+                            <div class="float-left">
+                                <h2>Data Barang</h2>
+                            </div>
+                            <div class="float-right">
+                                <a class="btn btn-success" href="{{ route('barang.create') }}">
+                                    <i class="far fa-plus-square">  Tambah Barang </i></a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="basic-datatables" class="display table table-striped table-hover">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Nama Barang</th>
                                             <th>Id Kategori</th>
                                             <th>Harga Barang</th>
@@ -51,9 +53,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $no=1;
+                                        @endphp
                                         @foreach ($barang as $a)
                                             <tr>
-
+                                                <td>{{ $no++ }}</td>
                                                 <td>{{ $a->nama_barang }}</td>
                                                 <td>{{ $a->kategori->nama_kategori }}</td>
                                                 <td>{{ $a->harga_barang }}</td>
