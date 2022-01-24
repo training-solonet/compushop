@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use Laravel\Jetstream\Rules\Role;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QtyController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\KeranjangController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Models\User;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 Route::resource('user', DashboardController::class);
 Route::resource('keranjang', KeranjangController::class)->middleware('auth');
 Route::get('/search', [DashboardController::class, 'search'])->name('search');
+Route::post('incQty', [QtyController::class, 'incQty'])->name('incQty');

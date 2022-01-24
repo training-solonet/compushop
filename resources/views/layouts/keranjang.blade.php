@@ -123,7 +123,7 @@
     <script src="{{ url('style/assets/js/jquery.customSelect.min.js') }}"></script>
     <script src="{{ url('style/assets/js/wow.min.js') }}"></script>
     <script src="{{ url('style/assets/js/buttons.js') }}"></script>
-    <script src="{{ url('style/assets/js/scripts.js') }}"></script>
+    <scrip src="{{ url('style/assets/js/scripts.js') }}"></script>
 </body>
 
 <!-- Mirrored from transvelo.github.io/mediacenter-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Dec 2021 02:21:54 GMT -->
